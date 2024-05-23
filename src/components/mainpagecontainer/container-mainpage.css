@@ -1,0 +1,65 @@
+.container-cover{
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-mainpage {
+    display: flex;
+    width:70%; /* Sağ ve soldan %15 boşluk bırakmak için */
+    height: 720px;
+    margin: 32px 15%;    /* Ortalamak için ve üstten boşluk için */
+    margin-left: 200px;
+    background-color: blue; /* Test için kırmızı arka plan rengi */
+    border-radius: 8px; /* Köşeleri yuvarlatmak için */
+    overflow: hidden; /* İçerik taşmasını engellemek için */
+  }
+  
+  .left-section, .right-section {
+    flex: 1; /* Eşit genişlik için */
+  }
+  
+  .left-section {
+    background-color: green;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .right-section {
+    background-color: purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .divider {
+    border: 0;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .image-placeholder {
+
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 18px;
+    border-radius: 8px; /* Köşeleri yuvarlatmak için */
+  }
+  

@@ -1,0 +1,198 @@
+.header {
+  position: relative;
+  transition: all 0.3s ease;
+  /* background-image: radial-gradient(circle at 400% 0%, #6999ad, #8a6464); */
+  top: 30px;
+
+}
+
+.header .top {
+  height: 130px;
+  transition: all 0.3s ease;
+  margin: 0px 15%; /* Sağ ve sol boşluk */
+
+  background-color: rgb(255, 255, 255);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 1px 2px 20px 1px #274aa1;
+
+}
+
+.header .top.scrolled {
+  height: 55px;
+}
+
+
+.header .top.scrolled .logo2-container {
+  background-color: rgb(255, 157, 0);
+  width: 200px;
+  height: 200px;
+}
+
+.header .top.scrolled .logo2 {
+  margin: 0 10%;
+  width: 80px;
+  margin-top: 10px;
+}
+
+.stocky{
+  width: 200px;
+  margin-top: -40px;
+}
+
+.header .top.scrolled .right-wrapper {
+  margin: 8px 5% 0 5%;
+}
+
+.header .top .logo2-container {
+  float: left;
+  margin-top: -12px;
+  
+}
+
+.header .top .logo2 {
+  margin: 30px;
+  /* background-color: rgb(57, 92, 57); */
+  padding-top: 20px;
+}
+
+.header .top .right-wrapper {
+  height: 40px;
+  float: right;
+  margin: 40px 10%; /* Sağ ve sol boşluk */
+  transition: all 0.3s ease;
+  margin-top: 45px;
+
+}
+
+.header .top .right-wrapper .app-name-wrapper {
+  display: inline-block;
+  vertical-align: top;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.header .top .right-wrapper .app-name-wrapper .app-icon {
+  margin: 11.5px 0 11.5px 8px;
+  background-color: black;
+}
+
+.header .top .right-wrapper .app-name-wrapper .app-name {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 14px;
+  color: #fff;
+  margin: 11.5px 0;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+.header .top .right-wrapper .app-name-wrapper .app-name-link {
+  color: black;
+  text-decoration: none;
+  box-shadow: 2px 2px 2px 1px #274aa1;
+  border:  1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 30px;
+
+}
+
+.header .top .right-wrapper .profile-pic {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 0 32px;
+  color: #000000;
+}
+
+.header .top .right-wrapper .profile-pic .picture {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.header .top .right-wrapper .profile-pic .picture:hover + .profile-name {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.header .top .right-wrapper .profile-pic .profile-name {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translate(0, -15px);
+  background-color: black;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  text-align: right;
+  white-space: nowrap;
+  padding: 10px 20px;
+  border-radius: 15px;
+}
+
+.header .top .right-wrapper .profile-pic .profile-name::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  top: -5px;
+  right: 15px;
+  transform: rotate(45deg);
+}
+
+.header .top .right-wrapper .app-menu {
+  vertical-align: top;
+  margin: 12px 0;
+  cursor: pointer;
+}
+
+.header .top .right-wrapper .dropdown {
+  position: relative;
+  display: inline-block;
+  top: -30px;
+}
+
+.header .top .right-wrapper .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  transition-delay: 2s; /* 2 saniye gecikme */
+}
+
+.header .top .right-wrapper .dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.header .top .right-wrapper .dropdown .dropdown-content a:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: red;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.header .top .right-wrapper .dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 10px;
+}
