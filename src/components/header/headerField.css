@@ -37,7 +37,8 @@
 
 .stocky{
   width: 200px;
-  margin-top: -40px;
+  margin-top: -30px;
+  height: 180px
 }
 
 .header .top.scrolled .right-wrapper {

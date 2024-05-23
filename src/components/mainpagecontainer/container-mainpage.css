@@ -2,14 +2,14 @@
     background-color: red;
     justify-content: center;
     align-items: center;
+    margin: 32px 15%;    /* Ortalamak için ve üstten boşluk için */
+
 }
 
 .container-mainpage {
     display: flex;
-    width:70%; /* Sağ ve soldan %15 boşluk bırakmak için */
+    width:100%; /* Sağ ve soldan %15 boşluk bırakmak için */
     height: 720px;
-    margin: 32px 15%;    /* Ortalamak için ve üstten boşluk için */
-    margin-left: 200px;
     background-color: blue; /* Test için kırmızı arka plan rengi */
     border-radius: 8px; /* Köşeleri yuvarlatmak için */
     overflow: hidden; /* İçerik taşmasını engellemek için */
