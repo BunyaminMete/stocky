@@ -40,9 +40,7 @@ const MainPageContainer = () => {
               <img className="stocklogo" alt="productlogo" src={productLogo} />
               <div className="stocktext">
                 &nbsp;&nbsp;
-                <a href="/productmanagement">
-                  Ürün Stoklarını Yönetmeye Başla!
-                </a>
+                <a href="/productpanel">Ürün Stoklarını Yönetmeye Başla!</a>
               </div>
             </div>
           </div>
