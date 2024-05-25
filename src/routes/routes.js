@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HomePage from "../pages/homepage";
-import ProductManagement from "../components/product/productpanel";
+import ProductManagement from "../pages/product/productpanel";
 
 function App() {
   return (
