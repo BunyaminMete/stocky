@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth } from "../../context/authcontext";
 
 import logomenu from "../../assets/menuicon.png";
 import stockylogo from "../../assets/stockylogo.png";
@@ -6,56 +7,9 @@ import stockylogo from "../../assets/stockylogo.png";
 import "./headerField.css";
 
 const GenerateHeader = React.memo(() => {
-  // const [isLogin, setLogin] = useState("true");
-  // const [activeUserName, setUserName] = useState("");
-  // const [userID, setUserID] = useState("");
-  // FOR TESTING*****************************************
-  // const showUser = () => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       // Kullanıcı oturum açmış durumda
-  //       const uid = user.uid;
-  //       alert(uid);
-  //     } else {
-  //       // Kullanıcı oturum açmamış durumda
-  //       alert("Kullanıcı oturum açmamış.");
-  //     }
-  //   });
-  // };
+  const { isLoggedIn, logout, firstName, lastName } = useAuth(); // AuthContext'ten loginResult değerini al
 
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setLogin("true");
-  //       const userId = user.uid;
-  //       setUserID(userId);
-  //       const userRef = firebase.firestore().collection("users").doc(userId);
-  //       userRef.get().then((doc) => {
-  //         if (doc.exists) {
-  //           const userData = doc.data();
-  //           const fullName = userData.firstName + ` ` + userData.lastName;
-  //           setUserName(fullName);
-  //         }
-  //       });
-  //     } else {
-  //       setLogin("");
-  //       setUserName("");
-  //     }
-  //   });
-
-  //   const handleLogout = () => {
-  //     firebase
-  //       .auth()
-  //       .signOut()
-  //       .then(() => {
-  //         // Oturumu kapatıldı, gerektiğinde kullanıcıyı yönlendirin veya başka bir işlem yapın
-  //         console.log("Kullanıcı başarıyla çıkış yaptı.");
-  //         // Örneğin, kullanıcıyı ana sayfaya yönlendirebilirsiniz
-  //         window.location.href = "/";
-  //       })
-  //       .catch((error) => {
-  //         console.error("Kullanıcı çıkış yaparken bir hata oluştu:", error);
-  //       });
-  //   };
+  console.log(isLoggedIn);
 
   return (
     <>
@@ -69,40 +23,38 @@ const GenerateHeader = React.memo(() => {
           </div>
           <div className="right-wrapper">
             <div className="app-name-wrapper">
-              <div className="app-name">
-                &nbsp;&nbsp;
-                <a className="app-name-link" href="/login">
-                  GİRİŞ YAP
-                </a>
-              </div>
-
-              {/* {isLogin ? (
-              <>
-                <div onClick={handleLogout} className="app-name">
-                  &nbsp;&nbsp; Çıkış yap
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="app-name">
-                  &nbsp;&nbsp;
-                  <a className="app-name-link" href="/login">
-                    Giriş yap
-                  </a>
-                  &nbsp;&nbsp; / &nbsp;&nbsp;
-                  <a className="app-name-link" href="/register">
-                    Kayıt Ol
-                  </a>
-                </div>
-              </>
-            )} */}
+              {isLoggedIn ? (
+                <>
+                  <div onClick={logout} className="app-name">
+                    &nbsp;&nbsp;{" "}
+                    <a className="app-name-link" href="/login">
+                      Çıkış yap
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="app-name">
+                    &nbsp;&nbsp;
+                    <a className="app-name-link" href="/login">
+                      Giriş yap
+                    </a>
+                    &nbsp;&nbsp; / &nbsp;&nbsp;
+                    <a className="app-name-link" href="/login">
+                      Kayıt Ol
+                    </a>
+                  </div>
+                </>
+              )}
             </div>
             <div className="profile-pic">
               <div className="picture"></div>
               {/* {activeUserName && (
                 <div className="profile-name">{activeUserName}</div>
               )} */}
-              <div className="profile-name">Current User</div>
+              <div className="profile-name">
+                {firstName.toUpperCase()} {lastName.toUpperCase()}
+              </div>
             </div>
             <div className="dropdown">
               <img
@@ -114,14 +66,13 @@ const GenerateHeader = React.memo(() => {
                 fill="#fff"
                 alt="menu icon"
               ></img>
-              <div className="dropdown-content">
-                <a className="app-name-link" href="/formpage">
-                  Giriş Yap
-                </a>
-                <a className="app-name-link" href="/formpage">
-                  Kayıt Ol
-                </a>
-              </div>
+              {isLoggedIn && (
+                <div className="dropdown-content">
+                  <a className="app-name-link" href="/productpanel">
+                    Panel
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>

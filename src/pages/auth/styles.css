@@ -13,10 +13,8 @@ body {
 }
 
 .login-card {
-  min-height: 70vh !important;
-  width: 30%;
-  margin: 0% 35%;
-  height: auto;
+  min-height: 20vh !important;
+  width: 22%;
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
@@ -69,6 +67,27 @@ body {
   position: relative;
   padding: 0px 10px;
   width: 100%;
+  width: 80%;
+  min-height: 50vh;
+  max-height: 85vh;
+}
+
+#kayit-form {
+  height: 700px;
+  padding: 10px;
+}
+
+#kayit-form > .group input {
+  font-size: 18px;
+  padding: 10px 0px 10px 0px;
+  height: 12px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  color: #eee;
+  margin-top: 8%;
 }
 
 .logo-kapsul {
@@ -79,7 +98,7 @@ body {
 
 .logo {
   height: auto;
-  padding: 50px 0px;
+  padding: 30px 0px;
   pointer-events: none;
 }
 
@@ -89,7 +108,7 @@ body {
 }
 .group input {
   font-size: 18px;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 0px 10px 0px;
   display: block;
   width: 100%;
   border: none;
@@ -267,16 +286,28 @@ input:valid ~ label {
 /* Geçiş Link */
 .zaten-hesap-var-link {
   color: rgb(221, 221, 221);
-  font-size: 16px;
+  font-size: 13px;
   padding: 20px 0px;
   text-decoration: none;
+  background: none;
+  border: none;
+  display: block;
+}
+
+.hesap-olustur-link {
+  color: rgb(221, 221, 221);
+  font-size: 13px;
+  padding: 20px 0px;
+  text-decoration: none;
+  background: none;
+  border: none;
   display: block;
 }
 
 .handlogo {
   position: absolute;
-  width: 80%;
+  width: 70%;
   z-index: 999;
-  top: -20%;
-  left: -25%;
+  top: -17%;
+  left: -30%;
 }

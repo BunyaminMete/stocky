@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import "./styles.css"; // CSS dosyasını içe aktarın
 import accountLogo from "../../assets/account.png";
 import hand from "../../assets/people2.png";
+import { useAuth } from "../../context/authcontext";
 
 const LoginRegisterForm = () => {
+  const { login } = useAuth(); // setLoginResult fonksiyonunu kullanarak loginResult'u güncelleyeceğiz
+
   const [activeForm, setActiveForm] = useState("login");
   const [formData, setFormData] = useState({
-    kullanici_adi: "",
-    sifre: "",
+    username: "",
+    firstName: "",
+    lastName: "",
     email: "",
-    ad: "",
-    soyad: "",
+    password: "",
   });
 
   const handleFormChange = (formName) => {
@@ -23,7 +26,10 @@ const LoginRegisterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = activeForm === "login" ? "/api/login" : "/api/register";
+    const url =
+      activeForm === "login"
+        ? "http://localhost:3000/api/user/login"
+        : "http://localhost:3000/api/user/register";
 
     try {
       const response = await fetch(url, {
@@ -35,11 +41,44 @@ const LoginRegisterForm = () => {
       });
 
       if (response.ok) {
-        // Giriş veya kayıt başarılı
         const result = await response.json();
         console.log(result);
+
+        // Kullanıcı bilgilerini almak için yeni bir istek yapın
+        const userInfoResponse = await fetch(
+          "http://localhost:3000/api/user/goruntule",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${result.token}`, // Token ekleme
+            },
+          }
+        );
+
+        if (userInfoResponse.ok) {
+          const users = await userInfoResponse.json();
+          const currentUser = users.find(
+            (user) => user.username === formData.username
+          );
+
+          if (currentUser) {
+            const { firstName, lastName } = currentUser;
+            console.log(currentUser);
+            console.log(firstName, lastName, "12312312");
+            // login fonksiyonuna parametre olarak firstName ve lastName'i gönderin
+            login(firstName, lastName);
+            window.location.href = result.redirect;
+          } else {
+            console.error("Kullanıcı bulunamadı.");
+          }
+        } else {
+          console.error(
+            "Kullanıcı bilgileri alınamadı:",
+            userInfoResponse.statusText
+          );
+        }
       } else {
-        // Hata durumu
         console.error("Hata:", response.statusText);
       }
     } catch (error) {
@@ -76,9 +115,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="text"
-                  name="kullanici_adi"
+                  name="username"
                   autoComplete="off"
-                  value={formData.kullanici_adi}
+                  value={formData.username}
                   onChange={handleChange}
                   required
                 />
@@ -92,9 +131,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="password"
-                  name="sifre"
+                  name="password"
                   autoComplete="off"
-                  value={formData.sifre}
+                  value={formData.password}
                   onChange={handleChange}
                   required
                 />
@@ -123,7 +162,7 @@ const LoginRegisterForm = () => {
             <form id="kayit-form" className="col-lg-12" onSubmit={handleSubmit}>
               <div className="col-lg-12 logo-kapsul">
                 <img
-                  width="200"
+                  width="60"
                   className="logo"
                   src={accountLogo}
                   alt="RadKod Logo"
@@ -134,9 +173,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="text"
-                  name="kullanici_adi"
+                  name="username"
                   autoComplete="off"
-                  value={formData.kullanici_adi}
+                  value={formData.username}
                   onChange={handleChange}
                   required
                 />
@@ -150,9 +189,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="text"
-                  name="ad"
+                  name="firstName"
                   autoComplete="off"
-                  value={formData.ad}
+                  value={formData.firstName}
                   onChange={handleChange}
                   required
                 />
@@ -165,9 +204,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="text"
-                  name="soyad"
+                  name="lastName"
                   autoComplete="off"
-                  value={formData.soyad}
+                  value={formData.lastName}
                   onChange={handleChange}
                   required
                 />
@@ -196,9 +235,9 @@ const LoginRegisterForm = () => {
               <div className="group">
                 <input
                   type="password"
-                  name="sifre"
+                  name="password"
                   autoComplete="off"
-                  value={formData.sifre}
+                  value={formData.password}
                   onChange={handleChange}
                   required
                 />

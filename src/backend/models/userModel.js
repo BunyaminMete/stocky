@@ -3,10 +3,10 @@ const mysql = require("mysql2");
 const bcrypt = require("bcrypt");
 
 const connection = mysql.createConnection({
-  host: "your_mysql_host",
-  user: "your_mysql_user",
-  password: "your_mysql_password",
-  database: "your_database_name",
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "stocky",
 });
 
 connection.connect((err) => {
@@ -64,6 +64,34 @@ module.exports = class User {
       connection.execute(
         "SELECT * FROM user WHERE email = ?",
         [email],
+        (err, results) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(results);
+          }
+        }
+      );
+    });
+  }
+
+  static getAllUsers() {
+    return new Promise((resolve, reject) => {
+      connection.execute("SELECT * FROM user", (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    });
+  }
+
+  static findById(id) {
+    return new Promise((resolve, reject) => {
+      connection.execute(
+        "SELECT * FROM user WHERE id = ?",
+        [id],
         (err, results) => {
           if (err) {
             reject(err);

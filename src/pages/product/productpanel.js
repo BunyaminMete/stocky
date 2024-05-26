@@ -3,8 +3,10 @@ import "./ProductManagement.css";
 import GenerateHeader from "../../components/header/headerField.js";
 import TableProduct from "../../components/table/table";
 import { getAllProducts } from "../../services/productService.js"; // Controller'dan fonksiyonu içe aktar
+import { useAuth } from "../../context/authcontext.js";
 
 const ProductManagement = () => {
+  const { isLoggedIn } = useAuth();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -23,17 +25,21 @@ const ProductManagement = () => {
 
   return (
     <>
-      <GenerateHeader />
-      <div className="product-container">
-        <div className="product-subcontainer">
-          <div className="product-management-container">
-            <TableProduct
-              products={products}
-              productTitle="Envanter Durumu (2500 Ürün)"
-            />
+      {isLoggedIn && (
+        <>
+          <GenerateHeader />
+          <div className="product-container">
+            <div className="product-subcontainer">
+              <div className="product-management-container">
+                <TableProduct
+                  products={products}
+                  productTitle="Envanter Durumu (2500 Ürün)"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   );
 };
