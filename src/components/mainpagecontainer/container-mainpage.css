@@ -7,12 +7,38 @@
 .container-mainpage {
   display: flex;
   width: 100%; /* Sağ ve soldan %15 boşluk bırakmak için */
-  height: 530px;
+  height: 420px;
   border-radius: 8px; /* Köşeleri yuvarlatmak için */
   overflow: hidden; /* İçerik taşmasını engellemek için */
   background-color: rgb(76, 9, 177, 0.05);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+}
+
+@media screen and (min-height: 1080px) {
+  .container-mainpage {
+    display: flex;
+    width: 100%; /* Sağ ve soldan %15 boşluk bırakmak için */
+    height: 800px;
+    border-radius: 8px; /* Köşeleri yuvarlatmak için */
+    overflow: hidden; /* İçerik taşmasını engellemek için */
+    background-color: rgb(76, 9, 177, 0.05);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
+
+@media screen and (min-height: 750px) and (max-height: 1080px) {
+  .container-mainpage {
+    display: flex;
+    width: 100%; /* Sağ ve soldan %15 boşluk bırakmak için */
+    height: 500px;
+    border-radius: 8px; /* Köşeleri yuvarlatmak için */
+    overflow: hidden; /* İçerik taşmasını engellemek için */
+    background-color: rgb(76, 9, 177, 0.05);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
 }
 
 .left-section,

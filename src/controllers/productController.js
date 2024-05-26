@@ -1,4 +1,19 @@
-// const Product = require("../models/product");
+const getAllProducts = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/product");
+    if (!response.ok) {
+      throw new Error("Ürünler alınırken bir hata oluştu.");
+    }
+    const products = await response.json();
+    return products;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export default getAllProducts;
+
+// const Product = require("../models/Product");
 
 // exports.getAllProducts = async (req, res) => {
 //   try {
