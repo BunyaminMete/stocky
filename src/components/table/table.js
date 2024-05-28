@@ -120,6 +120,7 @@ const TableProduct = ({ productTitle }) => {
       <div className="search-container">
         <input
           type="text"
+          className="searchTarget"
           placeholder="Ürün adı ara..."
           value={searchTerm}
           name="search"

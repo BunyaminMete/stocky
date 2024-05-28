@@ -4,7 +4,6 @@ import { getAllProducts } from "../../services/productService.js"; // Controller
 
 import GenerateHeader from "../../components/header/headerField.js";
 import TableProduct from "../../components/table/table";
-
 import "./ProductManagement.css";
 
 import gif404 from "../../assets/404.gif";
