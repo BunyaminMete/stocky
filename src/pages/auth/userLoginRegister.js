@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import "./styles.css"; // CSS dosyasını içe aktarın
-import accountLogo from "../../assets/account.png";
-import hand from "../../assets/people2.png";
 import { useAuth } from "../../context/authcontext";
+
+import "./styles.css"; // CSS dosyasını içe aktarın
+
+import hand from "../../assets/people2.png";
+import accountLogo from "../../assets/account.png";
 
 const LoginRegisterForm = () => {
   const { login } = useAuth(); // setLoginResult fonksiyonunu kullanarak loginResult'u güncelleyeceğiz

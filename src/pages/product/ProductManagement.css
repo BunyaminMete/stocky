@@ -271,3 +271,34 @@ body {
   float: right;
   cursor: pointer;
 }
+
+.gif-container{
+  background-color: rgb(33, 27, 47);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.gif-subcontainer{
+  margin-top: -40px;
+}
+
+.returnmainbutton{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnmainbutton > button{
+  font-size: 25px;
+  color: white;
+  font-weight: 700;
+  padding: 20px;
+  background: none;
+  border: 1px solid black;
+  box-shadow: 1px 1px 10px 2px gainsboro;
+  border-radius: 4px;
+  cursor: pointer;
+}
